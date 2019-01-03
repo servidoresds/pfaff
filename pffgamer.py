@@ -15,8 +15,6 @@ color = 0xc017b6
 client = discord.Client()
 
 
-imagem = {'000000000000000000': {'imagem': 0}}
-thumbnail = {'000000000000000000': {'thumbnail': 0}}
 cor = {'000000000000000000': {'color': '0x00000'}}
 
 
@@ -40,27 +38,6 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('pf!setar'):
-        set1 = message.content.strip('pf!setar')
-        imagem[message.author.id] = {'imagem': set1}
-        embed1 = discord.Embed(color=color)
-        embed1.set_image(url="{}".format(str(imagem[message.author.id]['imagem'])))
-        embed1.add_field(name=f"{message.author.name}",value="``📷 Pronto, senhor(a) coloquei a imagem que você pediu para ser enviada no DM dos membros\n💎 Digite pf!thumbnail (link)📷 para definir o icone``",inline=False)
-        embed1.set_footer(text=message.server.name, icon_url=message.server.icon_url)
-        embed1.timestamp = datetime.datetime.utcnow()
-        await client.delete_message(message)
-        await client.send_message(message.channel, embed=embed1)
-    if message.content.startswith('pf!thumbnail'):
-        set1 = message.content.strip('pf!thumbnail')
-        thumbnail[message.author.id] = {'thumbnail': set1}
-        embed1 = discord.Embed(color=color)
-        embed1.set_thumbnail(url="{}".format(str(thumbnail[message.author.id]['thumbnail'])))
-        embed1.set_image(url="{}".format(str(imagem[message.author.id]['imagem'])))
-        embed1.add_field(name=f"{message.author.name}",value="``Pronto, senhor(a) 👑 coloquei a thumbnail que você pediu para ser enviada no DM dos membros\n💎 Digite pf!msg) Para mandar a mensagem``",inline=False)
-        embed1.timestamp = datetime.datetime.utcnow()
-        embed1.set_footer(text=client.user.name, icon_url=client.user.avatar_url)
-        await client.delete_message(message)
-        await client.send_message(message.channel, embed=embed1)
     if message.content.lower().startswith('pf!msg'):
      if message.author.server_permissions.administrator:
         msg = message.content.strip('pf!msg')
@@ -73,8 +50,8 @@ async def on_message(message):
             user = message.author.name
             horario = datetime.datetime.now().strftime("%H:%M:%S")
             embed1 = discord.Embed(title="💜 PFAFFGAMER 💜", url="", color=color,description='**Mensagem nova para você 💌**\n<@{}> \n\n**Aviso:🍧**\n\n**{}**\n'.format(member.id, msg))
-            embed1.set_image(url="{}".format(str(imagem[message.author.id]['imagem'])))
-            embed1.set_thumbnail(url="{}".format(str(thumbnail[message.author.id]['thumbnail'])))
+            embed1.set_image(url="https://cdn.discordapp.com/attachments/505165436464267295/530184598580363266/Roberta_2.png")
+            embed1.set_thumbnail(url="https://cdn.discordapp.com/attachments/505165436464267295/530184598580363266/Roberta_2.png")
             embed1.set_footer(text="Enviado por --> {} • Hoje às {}".format(user, horario))
             try:
                 await client.send_message(member, embed=embed1)
@@ -103,4 +80,5 @@ async def on_member_join(member):
     await client.send_message(bemvindo, embed=embedvindo)
 
 
-client.run("NTEyOTk5MTI3NjcyNjg0NTQ1.DtBoqQ.cBufU8csDjv2Z3sXNu8wuCHeqPk")
+
+client.run(str(os.environ.get('TOKEN')))
