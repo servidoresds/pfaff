@@ -6,6 +6,7 @@ import json
 import time
 import datetime
 import safygiphy
+import os
 
 g = safygiphy.Giphy()
 start_time = {"start_time1": time.time()}
