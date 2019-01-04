@@ -7,7 +7,7 @@ import time
 import datetime
 import safygiphy
 import os
-ifrom random import randint
+import from random import randint
 
 g = safygiphy.Giphy()
 start_time = {"start_time1": time.time()}
