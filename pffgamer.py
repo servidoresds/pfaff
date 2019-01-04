@@ -260,7 +260,7 @@ async def on_message(message):
 
     if message.content.lower().startswith('pf!clear'):
         if not message.author.server_permissions.manage_messages:
-            await client.send_message(message.channel, "Você nao tem permissão de Limpar mensagens!
+            await client.send_message(message.channel, "Você nao tem permissão de Limpar mensagens!")
         if message.author.server_permissions.manage_messages:
             try:
                 lim = int(message.content[7:]) + 1
