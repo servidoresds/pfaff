@@ -259,16 +259,24 @@ async def on_message(message):
 
 
 
-    if message.content.lower().startswith('pf!clear'):
+    if message.content.startswith('pf!clear'):
+        try:
+         await client.delete_message(message)
+        except:
+         pass
         if not message.author.server_permissions.manage_messages:
-            await client.send_message(message.channel, "Você nao tem permissão de Limpar mensagens!")
+            embed = discord.Embed(color=COR, description="Sem Permissão Para Limpar Chat, Só Mods Ou Adms Podem Usar Isso!")
+            embed.set_footer(text=message.author.name, icon_url=client.user.avatar_url)
+            await client.send_message(message.channel, embed=embed)
         if message.author.server_permissions.manage_messages:
             try:
-                lim = int(message.content[7:]) + 1
+                lim = int(message.content[8:])
                 await client.purge_from(message.channel, limit=lim)
-                await client.send_message(message.channel,'**{}** Mensagens foram deletadas com sucesso , Por {}'.format(lim,message.author.mention))
-            finally:
-                pass
+                embed = discord.Embed(color=COR,description="`{}` mensagens deletadas com sucesso por {}".format(lim, message.author.mention))
+                embed.set_footer(text=message.author.name, icon_url=client.user.avatar_url)
+                await client.send_message(message.channel, embed=embed)
+            except:
+              pass    
 
 
 @client.event
