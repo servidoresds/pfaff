@@ -137,10 +137,10 @@ async def on_message(message):
             regiao = js['location']['region']
             pais = js['location']['country']
 
-            temp = str(js['current']['temp_c']) + "°C"
-            temp2 = str(js['current']['temp_f']) + "°F"
-            tenp = str(js['current']['feelslike_c']) + "°C"
-            tenp2 = str(js['current']['feelslike_f']) + "°F"
+            temp = str(js['current']['temp_c']) + "°C\n"
+            temp2 = str(js['current']['temp_f']) + "\n°F\n"
+            tenp = str(js['current']['feelslike_c']) + "\n°C\n"
+            tenp2 = str(js['current']['feelslike_f']) + "\n°F\n"
 
             umi = str(js['current']['humidity']) + "%"
             vento = str(js['current']['wind_kph']) + "km/h"
