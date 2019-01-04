@@ -7,6 +7,7 @@ import time
 import datetime
 import safygiphy
 import os
+import radint
 
 g = safygiphy.Giphy()
 start_time = {"start_time1": time.time()}
@@ -136,10 +137,10 @@ async def on_message(message):
             regiao = js['location']['region']
             pais = js['location']['country']
 
-            temp = str(js['current']['temp_c']) + "Â°C"
-            temp2 = str(js['current']['temp_f']) + "Â°F"
-            tenp = str(js['current']['feelslike_c']) + "Â°C"
-            tenp2 = str(js['current']['feelslike_f']) + "Â°F"
+            temp = str(js['current']['temp_c']) + "°C"
+            temp2 = str(js['current']['temp_f']) + "°F"
+            tenp = str(js['current']['feelslike_c']) + "°C"
+            tenp2 = str(js['current']['feelslike_f']) + "°F"
 
             umi = str(js['current']['humidity']) + "%"
             vento = str(js['current']['wind_kph']) + "km/h"
