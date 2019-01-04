@@ -39,6 +39,19 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    if message.content.startswith('pf!membros'):
+        # Importar time e datetime
+        user = message.author.name
+        horario = datetime.datetime.now().strftime("%H:%M:%S")
+        membros_embed = discord.Embed(title="\n", description="Quantidade De Membros No Servidor!", color=COR)
+        membros_embed.set_thumbnail(url=message.server.icon_url)
+        membros_embed.set_footer(text="Comando requisitado por {} Hoje as {}".format(user, horario))
+        membros_embed.add_field(name="Membros no servidor:", value=len(message.server.members), inline=True)
+        await client.send_message(message.channel, embed=membros_embed)
+    
+    
+    
+    
     if message.content.lower().startswith('pf!msg'):
      if message.author.server_permissions.administrator:
         msg = message.content.strip('pf!msg')
