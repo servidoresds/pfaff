@@ -138,9 +138,9 @@ async def on_message(message):
             pais = js['location']['country']
 
             temp = str(js['current']['temp_c']) + "°C\n"
-            temp2 = str(js['current']['temp_f']) + "\n°F\n"
-            tenp = str(js['current']['feelslike_c']) + "\n°C\n"
-            tenp2 = str(js['current']['feelslike_f']) + "\n°F\n"
+            temp2 = str(js['current']['temp_f']) + "°F\n"
+            tenp = str(js['current']['feelslike_c']) + "°C\n"
+            tenp2 = str(js['current']['feelslike_f']) + "°F\n"
 
             umi = str(js['current']['humidity']) + "%"
             vento = str(js['current']['wind_kph']) + "km/h"
