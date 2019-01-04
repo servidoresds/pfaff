@@ -69,17 +69,8 @@ async def on_message(message):
         
         
         
-   if message.content.startswith('pf!membros'):
-        # Importar time e datetime
-        user = message.author.name
-        horario = datetime.datetime.now().strftime("%H:%M:%S")
-        membros_embed = discord.Embed(title="\n", description="Quantidade De Membros No Servidor!", color=COR)
-        membros_embed.set_thumbnail(url=message.server.icon_url)
-        membros_embed.set_footer(text="Comando requisitado por {} Hoje as {}".format(user, horario))
-        membros_embed.add_field(name="Membros no servidor:", value=len(message.server.members), inline=True)
-        await client.send_message(message.channel, embed=membros_embed)
 
-    if message.content.lower().startswith('.inforuser'):
+    if message.content.lower().startswith('pf!inforuser'):
         user = message.author
         embedinfo = discord.Embed(title='**Suas informações:**', color=COR, description='\n')
         embedinfo.set_thumbnail(url=user.avatar_url)
