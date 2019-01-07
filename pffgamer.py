@@ -284,7 +284,7 @@ async def on_member_join(member):
     role1 = "Inscrito(a)"
     role = discord.utils.find(lambda r: r.name == "{}".format(role1), member.server.roles )
     await client.add_roles(member, role)
-    embedvindo = discord.Embed(color=color, title='\n',description='\n' + member.mention + '\n• **Seja Bem vindo ao servidor da PFAFFGAMER**\n\n**• Link do canal da Streamcraft**\n\n**https://streamcraft.com/user/2015336440**\n\n**• Link do canal do Youtube**\n\n**https://www.youtube.com/user/Pfaffgamer**')
+    embedvindo = discord.Embed(color=COR, title='\n',description='\n' + member.mention + '\n• **Seja Bem vindo ao servidor da PFAFFGAMER**\n\n**• Link do canal da Streamcraft**\n\n**https://streamcraft.com/user/2015336440**\n\n**• Link do canal do Youtube**\n\n**https://www.youtube.com/user/Pfaffgamer**')
     embedvindo.set_thumbnail(url=member.avatar_url)
     embedvindo.set_image(url="https://cdn.discordapp.com/attachments/499686934700883981/513021860259299329/bem_vindo_robertaaaa.png")
     embedvindo.set_author(name=member.name, icon_url=member.avatar_url)
